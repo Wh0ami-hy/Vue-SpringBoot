@@ -38,12 +38,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/404',
-    component: () => import('@/views/404'),
-    hidden: true
-  },
-
-  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -53,6 +47,28 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
+  },
+  {
+    path: '/question',
+    component: Layout,
+    meta: { title: '题库中心', icon: 'dashboard' },
+    children:[
+      {
+        path: 'list',
+        component: () => import('@/views/question/ListQuestion'),
+        meta: { title: '题库列表', icon: 'dashboard' }
+      },
+      {
+        path: 'import',
+        component: () => import('@/views/question/ImportQuestion'),
+        meta: { title: '题库导入', icon: 'dashboard' }
+      }
+    ]
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/404'),
+    hidden: true
   },
 
   // 404 page must be placed at the end !!!
