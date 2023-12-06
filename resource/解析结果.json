@@ -1,0 +1,199 @@
+{
+    "code": "00000",
+    "data": [
+        {
+            "createdAt": null,
+            "updatedAt": null,
+            "id": null,
+            "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+            "type": "SIGNAL_CHOICE",
+            "analysis": null,
+            "difficulty": null,
+            "score": null,
+            "isPublic": null,
+            "courseId": null,
+            "tagId": null,
+            "teacherId": null,
+            "options": [
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果有进位",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果有溢出",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "累加器 A 中的数据有奇数个 1",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果低 4 位向高位进位\n",
+                    "questionId": null,
+                    "answer": "1"
+                }
+            ]
+        },
+        {
+            "createdAt": null,
+            "updatedAt": null,
+            "id": null,
+            "content": "（3分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+            "type": "MULTIPLE_CHOICE",
+            "analysis": null,
+            "difficulty": null,
+            "score": null,
+            "isPublic": null,
+            "courseId": null,
+            "tagId": null,
+            "teacherId": null,
+            "options": [
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果有进位",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果有溢出",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "累加器 A 中的数据有奇数个 1",
+                    "questionId": null,
+                    "answer": "1"
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "计算结果低 4 位向高位进位\n",
+                    "questionId": null,
+                    "answer": "1"
+                }
+            ]
+        },
+        {
+            "createdAt": null,
+            "updatedAt": null,
+            "id": null,
+            "content": "（2分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+            "type": "JUDGMENTAL",
+            "analysis": null,
+            "difficulty": null,
+            "score": null,
+            "isPublic": null,
+            "courseId": null,
+            "tagId": null,
+            "teacherId": null,
+            "options": [
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "对",
+                    "questionId": null,
+                    "answer": null
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": "错\n",
+                    "questionId": null,
+                    "answer": "1"
+                }
+            ]
+        },
+        {
+            "createdAt": null,
+            "updatedAt": null,
+            "id": null,
+            "content": "总线路是用于传送信息的公共通信途径。总线可分为____、____和____。\n",
+            "type": "COMPLETION",
+            "analysis": null,
+            "difficulty": null,
+            "score": null,
+            "isPublic": null,
+            "courseId": null,
+            "tagId": null,
+            "teacherId": null,
+            "options": [
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": null,
+                    "questionId": null,
+                    "answer": "数据总线"
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": null,
+                    "questionId": null,
+                    "answer": " 地址总线"
+                },
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": null,
+                    "questionId": null,
+                    "answer": " 控制总线"
+                }
+            ]
+        },
+        {
+            "createdAt": null,
+            "updatedAt": null,
+            "id": null,
+            "content": "总线路是用于传送信息的公共通信途径。总线可分为\n",
+            "type": "SUBJECTIVE",
+            "analysis": null,
+            "difficulty": null,
+            "score": null,
+            "isPublic": null,
+            "courseId": null,
+            "tagId": null,
+            "teacherId": null,
+            "options": [
+                {
+                    "createdAt": null,
+                    "updatedAt": null,
+                    "id": null,
+                    "content": null,
+                    "questionId": null,
+                    "answer": "数据总线"
+                }
+            ]
+        }
+    ],
+    "msg": "一切ok",
+    "time": "2023-12-02T11:00:30.5393316"
+}
