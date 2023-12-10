@@ -1,16 +1,13 @@
 springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-    tags-sorter: alpha
-    operations-sorter: alpha
   api-docs:
-    path: /v3/api-docs
-  group-configs:
-    - group: 'default'
-      paths-to-match: '/**'
-      packages-to-scan: com.yatong.exam.*
-# knife4j
-knife4j:
-  enable: true
-  setting:
-    language: zh_cn
+    # 是否开启接口文档
+    enabled: true
+  swagger-ui:
+    # 持久化认证数据，如果设置为 true，它会保留授权数据并且不会在浏览器关闭/刷新时丢失
+    persistAuthorization: false
+mybatis:
+  # 导入SQL语句配置文件的位置
+  mapper-locations: com.yatong.exam.mapper.xml.*
+  # 开启驼峰映射
+  configuration:
+    map-underscore-to-camel-case=true
