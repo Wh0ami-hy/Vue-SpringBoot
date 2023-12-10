@@ -6,7 +6,7 @@
         INSERT INTO ex_question (content, type, difficulty, score, questionTagId, deptId)
         VALUES
         <foreach collection="list" item="item" separator=",">
-            (#{item.value1}, #{item.value2})
+            (#{item.value1}, #{item.value2},#{item.value3},#{item.value4},#{item.value5},#{item.value6})
         </foreach>
     </insert>
 
