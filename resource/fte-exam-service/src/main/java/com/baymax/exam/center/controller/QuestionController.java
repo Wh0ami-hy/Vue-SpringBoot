@@ -48,6 +48,7 @@ public class QuestionController {
     QuestionServiceImpl questionService;
     @Autowired
     CourseClient courseClient;
+    
     @Operation(summary = "创建题目")
     @PostMapping("/add")
     public Result add(@RequestBody @Validated QuestionInfoVo questionInfo){

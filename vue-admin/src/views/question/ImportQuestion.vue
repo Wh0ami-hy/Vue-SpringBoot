@@ -8,7 +8,7 @@
       </el-row>
       <el-row :gutter="20">
       <el-col :span="12" :xs="24">
-        <TinymceEditor v-model="form.content" ref="tinymceEditorRef"></TinymceEditor>
+        <TinymceEditor v-model="form.questionsText" ref="tinymceEditorRef"></TinymceEditor>
       </el-col>
       <el-col :span="12" :xs="24">
         <h3>预览区</h3>
@@ -25,6 +25,7 @@
 <script>
 import TinymceEditor from '@/components/Exam/TinymceEditor';
 import QuestionPreview from '@/components/Exam/QuestionPreview';
+import {parseQuestion} from '@/api/question';
 
 export default {
   components: { TinymceEditor,QuestionPreview},
@@ -32,13 +33,13 @@ export default {
     
     return {
       form: {
-        content: '题目信息'
+        questionsText: ''
       },
     }
   },
   methods: {
     showContent(){
-      console.log(this.form.content);
+      parseQuestion(this.form);
     },
   },
 
