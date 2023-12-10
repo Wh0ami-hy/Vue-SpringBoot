@@ -25,5 +25,4 @@ public class BatchQuestion {
     @Schema(description = "题目列表")
     private List<QuestionInfoVo> questionInfos;
 
-
 }

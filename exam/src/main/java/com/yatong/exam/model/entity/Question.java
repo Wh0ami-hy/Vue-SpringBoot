@@ -9,6 +9,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * @Author HouYi
+ * @Date 2023/12/10 19:48
+ * @Description 题目信息实体
+ * @Since version-1.0
+ */
 @Schema(name = "Question", description = "题目信息")
 @Data
 public class Question extends BaseEntity {

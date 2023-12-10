@@ -7,7 +7,12 @@ import lombok.Data;
 
 import java.util.List;
 
-
+/**
+ * @Author HouYi
+ * @Date 2023/12/10 19:47
+ * @Description 题目信息 + 题目内容
+ * @Since version-1.0
+ */
 @Data
 @Schema(name = "QuestionInfoVo", description = "题目具体信息")
 public class QuestionInfoVo extends Question {

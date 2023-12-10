@@ -3,6 +3,12 @@ package com.yatong.exam.model.entity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
+/**
+ * @Author HouYi
+ * @Date 2023/12/10 19:48
+ * @Description 题目详细内容实体
+ * @Since version-1.0
+ */
 @Data
 public class QuestionItem {
     private static final long serialVersionUID = 1L;

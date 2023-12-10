@@ -178,14 +178,15 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public String batchAddQuestion(BatchQuestion batchQuestion) {
+        System.out.println(batchQuestion);
         List<QuestionInfoVo> questionInfoVoList = new ArrayList<>();
         Integer questionTagId = batchQuestion.getQuestionTagId();
         questionInfoVoList = batchQuestion.getQuestionInfos();
         for (QuestionInfoVo vo : questionInfoVoList) {
             vo.setQuestionTagId(questionTagId);
+            System.out.println(vo + "\n");
         }
-        log.info(questionTagId.toString());
-        log.info(questionInfoVoList.toString());
+
         //questionMapper.insertBatch(questionInfoVoList);
 
         return null;
