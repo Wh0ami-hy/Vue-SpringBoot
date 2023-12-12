@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.yatong.exam.utils.Result;
 import com.yatong.exam.constant.enums.ResultCode;
 
+import java.sql.SQLException;
 
 
 /**
@@ -33,7 +34,7 @@ public class QuestionController {
 
     @Operation(summary = "批量创建题目")
     @PostMapping("/batchAdd")
-    public Result batchAdd(@RequestBody @Validated BatchQuestion batchQuestion){
+    public Result batchAdd(@RequestBody @Validated BatchQuestion batchQuestion) throws SQLException {
 
         questionService.batchAddQuestion(batchQuestion);
         return new Result(ResultCode.SUCCESS, null);
@@ -51,7 +52,6 @@ public class QuestionController {
         String text= parseQuestionVo.getQuestionsText().replaceAll("<br\\/?>","\n");
         //去除富文本最外层p
         text=text.replaceAll("<p>|<\\/p>","");
-        log.info(text);
 
         return new Result(ResultCode.SUCCESS, questionService.parseQuestionText(text,rule));
     }

@@ -4,6 +4,7 @@ import com.yatong.exam.model.entity.ParseQuestionRules;
 import com.yatong.exam.model.vo.BatchQuestion;
 import com.yatong.exam.model.vo.QuestionInfoVo;
 
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -18,7 +19,7 @@ import java.util.regex.Pattern;
 public interface QuestionService {
     List<QuestionInfoVo> parseQuestionText(String text, ParseQuestionRules rule);
 
-    String batchAddQuestion(BatchQuestion batchQuestion);
+    String batchAddQuestion(BatchQuestion batchQuestion) throws SQLException;
 //    QuestionInfoVo questionInfo(Integer questionId);
 //
 //    List<QuestionInfoVo> examQuestionInfo(Integer examId);

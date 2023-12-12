@@ -11,6 +11,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -140,6 +144,7 @@ public class QuestionServiceImpl implements QuestionService {
                 }
             }
             Float score = Float.parseFloat(scoreBuilder.toString());
+            questionInfo.setScore(score);
             log.info("题目分数=>"+score);
 
             if(questionInfo.getContent().isEmpty()){
@@ -165,7 +170,7 @@ public class QuestionServiceImpl implements QuestionService {
                 }
             }
             // 这里的type返回了 0、1、2、3、4 ，前端需要修改
-            questionInfo.setType(""+type.getValue());
+            questionInfo.setType(type.getValue());
 
             // 设置题目选项
             questionInfo.setOptions(getItem(type,answerList,optionList));
@@ -177,17 +182,37 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public String batchAddQuestion(BatchQuestion batchQuestion) {
-        System.out.println(batchQuestion);
+    public String batchAddQuestion(BatchQuestion batchQuestion) throws SQLException {
         List<QuestionInfoVo> questionInfoVoList = new ArrayList<>();
         Integer questionTagId = batchQuestion.getQuestionTagId();
         questionInfoVoList = batchQuestion.getQuestionInfos();
         for (QuestionInfoVo vo : questionInfoVoList) {
             vo.setQuestionTagId(questionTagId);
-            System.out.println(vo + "\n");
-        }
 
-        //questionMapper.insertBatch(questionInfoVoList);
+            System.out.println(vo.getContent());
+        }
+        String url = "jdbc:mysql://localhost:3306/online_exam?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8";
+        String username = "root";
+        String password = "root";
+
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        connection.setAutoCommit(false);
+
+        String insertQuery = "INSERT INTO ex_question (content, type, difficulty, score, question_tag_id, dept_id) VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(insertQuery);
+        for (QuestionInfoVo vo : questionInfoVoList) {
+            statement.setString(1, vo.getContent());
+            statement.setInt(2, vo.getType());
+            statement.setInt(3, vo.getDifficulty());
+            statement.setFloat(4, vo.getScore());
+            statement.setInt(5, vo.getQuestionTagId());
+            statement.setInt(6, vo.getDeptId());
+            statement.addBatch();
+        }
+        int[] result = statement.executeBatch();
+        connection.commit();
+        connection.close();
 
         return null;
     }
