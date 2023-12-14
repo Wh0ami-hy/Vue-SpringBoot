@@ -2,6 +2,926 @@
   "code": 2000,
   "msg": "操作成功",
   "data": [
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
+        {
+      "createTime": null,
+      "createBy": null,
+      "updateTime": null,
+      "updateBy": null,
+      "remark": null,
+      "delFlag": null,
+      "questionId": null,
+      "content": "（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。",
+      "type": 0,
+      "difficulty": 1,
+      "score": 4,
+      "questionTagId": 456,
+      "options": [
+        {
+          "questionItemId": null,
+          "content": "计算结果有进位",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果有溢出",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "累加器 A 中的数据有奇数个 1",
+          "questionId": null,
+          "answer": null
+        },
+        {
+          "questionItemId": null,
+          "content": "计算结果低 4 位向高位进位",
+          "questionId": null,
+          "answer": "1"
+        }
+      ]
+    },
     {
       "createTime": null,
       "createBy": null,
@@ -15,7 +935,6 @@
       "difficulty": 1,
       "score": 4,
       "questionTagId": 456,
-      "deptId": 123,
       "options": [
         {
           "questionItemId": null,
@@ -56,7 +975,6 @@
       "difficulty": 1,
       "score": 3,
       "questionTagId": 456,
-      "deptId": 123,
       "options": [
         {
           "questionItemId": null,
@@ -97,7 +1015,6 @@
       "difficulty": 1,
       "score": 2,
       "questionTagId": 456,
-      "deptId": 123,
       "options": [
         {
           "questionItemId": null,
@@ -126,7 +1043,6 @@
       "difficulty": 1,
       "score": 3,
       "questionTagId": 456,
-      "deptId": 123,
       "options": [
         {
           "questionItemId": null,
@@ -161,7 +1077,6 @@
       "difficulty": 1,
       "score": 5,
       "questionTagId": 456,
-      "deptId": 123,
       "options": [
         {
           "questionItemId": null,

@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.baymax.exam.center.mapper.QuestionMapper">
+<mapper namespace="com.yatong.exam.mapper.QuestionMapper">
 
-    <insert id="insertBatch" parameterType="java.util.List">
-        INSERT INTO ex_question (content, type, difficulty, score, questionTagId, deptId)
+    <insert id="insertQuestion" parameterType="com.yatong.exam.model.vo.QuestionInfoVo" useGeneratedKeys = "true" keyProperty = "questionId">
+        INSERT INTO ex_question
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                content,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="difficulty != null">
+                difficulty,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+            <if test="questionTagId != null">
+                question_tag_id
+            </if>
+        </trim>
         VALUES
-        <foreach collection="list" item="item" separator=",">
-            (#{item.value1}, #{item.value2},#{item.value3},#{item.value4},#{item.value5},#{item.value6})
-        </foreach>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                #{content},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="difficulty != null">
+                #{difficulty},
+            </if>
+            <if test="score != null">
+                #{score},
+            </if>
+            <if test="questionTagId != null">
+                #{questionTagId}
+            </if>
+        </trim>
     </insert>
+
+
 
 </mapper>

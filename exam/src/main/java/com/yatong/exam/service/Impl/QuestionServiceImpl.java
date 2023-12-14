@@ -1,5 +1,6 @@
 package com.yatong.exam.service.Impl;
 
+import com.yatong.exam.mapper.QuestionItemMapper;
 import com.yatong.exam.mapper.QuestionMapper;
 import com.yatong.exam.model.entity.ParseQuestionRules;
 import com.yatong.exam.model.entity.QuestionItem;
@@ -10,6 +11,7 @@ import com.yatong.exam.constant.enums.QuestionTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +30,8 @@ import java.util.stream.IntStream;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionMapper questionMapper;
+    @Autowired
+    QuestionItemMapper questionItemMapper;
 
     private static final String[] letterList = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
@@ -182,37 +186,28 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public String batchAddQuestion(BatchQuestion batchQuestion) throws SQLException {
+    public String batchAddQuestion(BatchQuestion batchQuestion) {
         List<QuestionInfoVo> questionInfoVoList = new ArrayList<>();
         Integer questionTagId = batchQuestion.getQuestionTagId();
         questionInfoVoList = batchQuestion.getQuestionInfos();
+
+        StopWatch stopWatch = new StopWatch();
+        // 开始时间
+        stopWatch.start();
+
         for (QuestionInfoVo vo : questionInfoVoList) {
             vo.setQuestionTagId(questionTagId);
-
-            System.out.println(vo.getContent());
+            questionMapper.insertQuestion(vo);
+            for (QuestionItem voItem : vo.getOptions()) {
+                voItem.setQuestionId(vo.getQuestionId());
+                log.info(voItem.toString());
+                questionItemMapper.insertItem(voItem);
+            }
         }
-        String url = "jdbc:mysql://localhost:3306/online_exam?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8";
-        String username = "root";
-        String password = "root";
 
-        Connection connection = DriverManager.getConnection(url, username, password);
-
-        connection.setAutoCommit(false);
-
-        String insertQuery = "INSERT INTO ex_question (content, type, difficulty, score, question_tag_id, dept_id) VALUES (?, ?, ?, ?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(insertQuery);
-        for (QuestionInfoVo vo : questionInfoVoList) {
-            statement.setString(1, vo.getContent());
-            statement.setInt(2, vo.getType());
-            statement.setInt(3, vo.getDifficulty());
-            statement.setFloat(4, vo.getScore());
-            statement.setInt(5, vo.getQuestionTagId());
-            statement.setInt(6, vo.getDeptId());
-            statement.addBatch();
-        }
-        int[] result = statement.executeBatch();
-        connection.commit();
-        connection.close();
+        stopWatch.stop();
+        // 统计执行时间（毫秒）
+        System.out.printf("执行时长：%d 毫秒.%n", stopWatch.getTotalTimeMillis());
 
         return null;
     }

@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 public interface QuestionService {
     List<QuestionInfoVo> parseQuestionText(String text, ParseQuestionRules rule);
 
-    String batchAddQuestion(BatchQuestion batchQuestion) throws SQLException;
+    String batchAddQuestion(BatchQuestion batchQuestion);
 //    QuestionInfoVo questionInfo(Integer questionId);
 //
 //    List<QuestionInfoVo> examQuestionInfo(Integer examId);

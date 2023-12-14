@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yatong.exam.mapper.QuestionItemMapper">
+
+    <insert id="insertItem" parameterType="com.yatong.exam.model.entity.QuestionItem">
+        INSERT INTO ex_question_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                content,
+            </if>
+            <if test="answer != null">
+                answer,
+            </if>
+            <if test="questionId != null">
+                question_id
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content != null">
+                #{content},
+            </if>
+            <if test="answer != null">
+                #{answer},
+            </if>
+            <if test="questionId != null">
+                #{questionId},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

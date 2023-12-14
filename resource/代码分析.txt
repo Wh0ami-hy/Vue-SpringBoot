@@ -1,6 +1,8 @@
-解析题目文本的重点代码是D:\examSystem\exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\utils\ParseQuestionText
+解析题目文本的重点代码是 exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\utils\ParseQuestionText
 
-批量解析题目的代码 D:\examSystem\exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\controller\QuestionController
-组卷的代码 D:\examSystem\exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\controller\ExamQuestionController
+批量解析题目的代码 exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\controller\QuestionController
+组卷的代码 exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\controller\ExamQuestionController
 
-题目解析规则的代码 D:\examSystem\exam\fte-api\src\main\java\com\baymax\exam\center\enums\DefaultQuestionRuleEnum
+题目解析规则的代码 exam\fte-api\src\main\java\com\baymax\exam\center\enums\DefaultQuestionRuleEnum
+
+题目插入数据库的代码 exam\fte-service\fte-exam-service\src\main\java\com\baymax\exam\center\service\impl\QuestionServiceImpl.java

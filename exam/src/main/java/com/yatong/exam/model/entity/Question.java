@@ -42,7 +42,4 @@ public class Question extends BaseEntity {
 
     @Schema(description = "题库标签：计算机类、安全类、财会类")
     private Integer questionTagId;
-
-    @Schema(description = "部门")
-    private Integer deptId;
 }
