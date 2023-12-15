@@ -78,6 +78,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
         return list;
     }
+
     @Override
     public List<QuestionInfoVo> parseQuestionText(String text, ParseQuestionRules rule) {
 
@@ -90,7 +91,7 @@ public class QuestionServiceImpl implements QuestionService {
         // 选项规则
         String optionRule=rule.getOptionRule();
         // 获取题目分数的规则
-        String scoreRule = "（\\d+分）";
+        String scoreRule =rule.getScoreRule();
 
         // 把文本分割成单独的题目
         String[] questionInfoStr = text.split(divisionRule);
@@ -100,7 +101,6 @@ public class QuestionServiceImpl implements QuestionService {
         QuestionTypeEnum type = null;
         // 存放题目分数，因为在循环体中是公用的所以提出来
         StringBuilder scoreBuilder = new StringBuilder();
-
 
         // 循环遍历各个题目，提取出相关数据
         for (String str : questionInfoStr) {
@@ -127,20 +127,12 @@ public class QuestionServiceImpl implements QuestionService {
             optionList.remove(0);
             log.info("选项=>"+optionList);
 
-            // 提取题干
-            Pattern questionPattern = Pattern.compile(questionRule, Pattern.MULTILINE);
-            Matcher questionMatcher = questionPattern.matcher(str);
-            if (questionMatcher.find()){
-                questionInfo.setContent(questionMatcher.group(0));
-            }
-            log.info("题干=>"+questionMatcher.group(0));
-
             // 提取题目分数
             scoreBuilder.delete(0,scoreBuilder.length());
-            Pattern scorePattern = Pattern.compile(scoreRule, Pattern.MULTILINE);
-            Matcher scoreMatcher = scorePattern.matcher(questionInfo.getContent());
+            Pattern scorePattern = Pattern.compile(scoreRule);
+            Matcher scoreMatcher = scorePattern.matcher(str);
             if (scoreMatcher.find()) {
-                String matchedContent = scoreMatcher.group(0);
+                String matchedContent = scoreMatcher.group(1);
                 for (char c : matchedContent.toCharArray()) {
                     if (Character.isDigit(c)) {
                         scoreBuilder.append(c);
@@ -150,6 +142,15 @@ public class QuestionServiceImpl implements QuestionService {
             Float score = Float.parseFloat(scoreBuilder.toString());
             questionInfo.setScore(score);
             log.info("题目分数=>"+score);
+
+
+            // 提取题干
+            Pattern questionPattern = Pattern.compile(questionRule);
+            Matcher questionMatcher = questionPattern.matcher(str);
+            if (questionMatcher.find()){
+                questionInfo.setContent(questionMatcher.group(1));
+            }
+            log.info("题干=>"+questionInfo.getContent());
 
             if(questionInfo.getContent().isEmpty()){
                 continue;
@@ -200,7 +201,6 @@ public class QuestionServiceImpl implements QuestionService {
             questionMapper.insertQuestion(vo);
             for (QuestionItem voItem : vo.getOptions()) {
                 voItem.setQuestionId(vo.getQuestionId());
-                log.info(voItem.toString());
                 questionItemMapper.insertItem(voItem);
             }
         }

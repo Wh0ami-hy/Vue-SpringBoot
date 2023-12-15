@@ -15,7 +15,7 @@ public enum QuestionRuleEnum {
     字母、选项内容（可选）：
     答案： 答案内容（多个答案用中文分号（；）分割）
      */
-    CHAOXING("学习通",new ParseQuestionRules("\\n\\d{1,3}\\s*[\\.、：:]","（\\d+分）.*","答案：\\s*([\\s\\S]*)","；","\\n\\s*[A-Z]\\s*[、.]\\s*"));
+    CHAOXING("学习通",new ParseQuestionRules("\\n\\d{1,3}\\s*[\\.、：:]","（\\d+分）(.*)","答案：\\s*([\\s\\S]*)","；","\\n\\s*[A-Z]\\s*[、.]\\s*","\\（(\\d+)分\\）"));
     @Getter
     private String name;
     @Getter

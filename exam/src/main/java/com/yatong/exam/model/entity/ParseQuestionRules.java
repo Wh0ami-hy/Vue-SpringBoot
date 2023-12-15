@@ -30,4 +30,7 @@ public class ParseQuestionRules {
 
     @Schema(description = "选择规则")
     private String optionRule;
+
+    @Schema(description = "分数规则")
+    private String scoreRule;
 }
