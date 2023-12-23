@@ -3,8 +3,8 @@ package com.yatong.exam.service.Impl;
 import com.yatong.exam.mapper.QuestionItemMapper;
 import com.yatong.exam.mapper.QuestionMapper;
 import com.yatong.exam.model.entity.ParseQuestionRules;
-import com.yatong.exam.model.entity.QuestionItem;
-import com.yatong.exam.model.vo.BatchQuestion;
+import com.yatong.exam.model.entity.ExQuestionItem;
+import com.yatong.exam.model.vo.BatchQuestionVo;
 import com.yatong.exam.model.vo.QuestionInfoVo;
 import com.yatong.exam.service.QuestionService;
 import com.yatong.exam.constant.enums.QuestionTypeEnum;
@@ -13,10 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,12 +31,12 @@ public class QuestionServiceImpl implements QuestionService {
 
     private static final String[] letterList = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
-    private static List<QuestionItem> getItem(QuestionTypeEnum type, List<String> answerList, List<String> optionList){
-        List<QuestionItem> list=null;
+    private static List<ExQuestionItem> getItem(QuestionTypeEnum type, List<String> answerList, List<String> optionList){
+        List<ExQuestionItem> list=null;
         // 主观、填空
         if(type==QuestionTypeEnum.SUBJECTIVE||type==QuestionTypeEnum.COMPLETION){
             list=answerList.stream().filter(i->!i.isEmpty()).map(i->{
-                QuestionItem item=new QuestionItem();
+                ExQuestionItem item=new ExQuestionItem();
                 item.setAnswer(i);
                 return item;
             }).collect(Collectors.toList());
@@ -51,7 +47,7 @@ public class QuestionServiceImpl implements QuestionService {
             }).collect(Collectors.toList());
             //获取字母的下标
             list=IntStream.rangeClosed(0,optionList.size()-1).filter(i->!optionList.get(i).isEmpty()).mapToObj(i->{
-                QuestionItem item=new QuestionItem();
+                ExQuestionItem item=new ExQuestionItem();
                 item.setContent(optionList.get(i));
                 //确定选项答案
                 boolean contains = temAnswerList.contains(letterList[i]);
@@ -66,7 +62,7 @@ public class QuestionServiceImpl implements QuestionService {
             }).collect(Collectors.toList());
             //获取字母的下标
             list=IntStream.rangeClosed(0,optionList.size()-1).filter(i->!optionList.get(i).isEmpty()).mapToObj(i->{
-                QuestionItem item=new QuestionItem();
+                ExQuestionItem item=new ExQuestionItem();
                 item.setContent(optionList.get(i));
                 //确定选项答案
                 boolean contains = judgeAnswerList.contains(letterList[i]);
@@ -187,10 +183,10 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public String batchAddQuestion(BatchQuestion batchQuestion) {
+    public String batchAddQuestion(BatchQuestionVo batchQuestionVo) {
         List<QuestionInfoVo> questionInfoVoList = new ArrayList<>();
-        Integer questionTagId = batchQuestion.getQuestionTagId();
-        questionInfoVoList = batchQuestion.getQuestionInfos();
+        Integer questionTagId = batchQuestionVo.getQuestionTagId();
+        questionInfoVoList = batchQuestionVo.getQuestionInfos();
 
         StopWatch stopWatch = new StopWatch();
         // 开始时间
@@ -199,7 +195,7 @@ public class QuestionServiceImpl implements QuestionService {
         for (QuestionInfoVo vo : questionInfoVoList) {
             vo.setQuestionTagId(questionTagId);
             questionMapper.insertQuestion(vo);
-            for (QuestionItem voItem : vo.getOptions()) {
+            for (ExQuestionItem voItem : vo.getOptions()) {
                 voItem.setQuestionId(vo.getQuestionId());
                 questionItemMapper.insertItem(voItem);
             }

@@ -10,7 +10,8 @@ import lombok.Data;
  * @Since version-1.0
  */
 @Data
-public class QuestionItem {
+@Schema(name = "ExQuestionItem", description = "题目具体信息")
+public class ExQuestionItem {
     private static final long serialVersionUID = 1L;
 
     private Integer questionItemId;

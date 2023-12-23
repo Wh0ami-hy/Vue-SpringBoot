@@ -15,9 +15,10 @@ import javax.validation.constraints.NotNull;
  * @Description 题目信息实体
  * @Since version-1.0
  */
-@Schema(name = "Question", description = "题目信息")
+
+@Schema(name = "ExQuestion", description = "题目信息")
 @Data
-public class Question extends BaseEntity {
+public class ExQuestion extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     private Integer questionId;

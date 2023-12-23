@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
  * @Since version-1.0
  */
 
+@Schema(name = "ParseQuestionVo", description = "题目的富文本")
 @Data
 public class ParseQuestionVo {
     @NotBlank(message = "题目文本不能空")

@@ -2,7 +2,7 @@ package com.yatong.exam.controller;
 
 import com.yatong.exam.constant.enums.QuestionRuleEnum;
 import com.yatong.exam.model.entity.ParseQuestionRules;
-import com.yatong.exam.model.vo.BatchQuestion;
+import com.yatong.exam.model.vo.BatchQuestionVo;
 import com.yatong.exam.model.vo.ParseQuestionVo;
 import com.yatong.exam.service.Impl.QuestionServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,9 +34,9 @@ public class QuestionController {
 
     @Operation(summary = "批量创建题目")
     @PostMapping("/batchAdd")
-    public Result batchAdd(@RequestBody @Validated BatchQuestion batchQuestion) throws SQLException {
+    public Result batchAdd(@RequestBody @Validated BatchQuestionVo batchQuestionVo) throws SQLException {
 
-        questionService.batchAddQuestion(batchQuestion);
+        questionService.batchAddQuestion(batchQuestionVo);
         return new Result(ResultCode.SUCCESS, null);
     }
 

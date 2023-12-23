@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 
 @Data
+@Schema(name = "BaseEntity", description = "公共实体")
 public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

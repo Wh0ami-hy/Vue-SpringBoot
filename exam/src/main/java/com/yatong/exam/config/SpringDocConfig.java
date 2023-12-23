@@ -28,10 +28,17 @@ public class SpringDocConfig {
     }
 
     @Bean
-    public GroupedOpenApi adminApi() {
+    public GroupedOpenApi questionApi() {
         return GroupedOpenApi.builder()
                 .group("question")
                 .pathsToMatch("/question/**")
+                .build();
+    }
+    @Bean
+    public GroupedOpenApi systemApi() {
+        return GroupedOpenApi.builder()
+                .group("system")
+                .pathsToMatch("/system/**")
                 .build();
     }
 }
