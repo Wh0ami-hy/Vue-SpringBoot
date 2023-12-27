@@ -7,8 +7,8 @@
 - 前端框架：vue-admin-template开源框架
 - 后端框架：springboot2.7
 - ORM框架：mybatis
-- 认证和授权：springsecurity
-- token生成：jjwt
+- 认证和授权：sa-token
 - Json处理：Jackson
 - API文档实现：springdoc
 - 日志实现：Logback + slf4j
+- 工具库：Hutool

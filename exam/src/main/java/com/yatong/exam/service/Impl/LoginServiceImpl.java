@@ -1,62 +1,31 @@
 package com.yatong.exam.service.Impl;
 
+import cn.dev33.satoken.stp.StpUtil;
+import com.yatong.exam.mapper.LoginMapper;
+import com.yatong.exam.model.entity.SysUser;
+import com.yatong.exam.model.vo.LoginBodyVo;
 import com.yatong.exam.service.LoginService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
+@Slf4j
+@Service
 public class LoginServiceImpl implements LoginService {
-    @Override
-    public String login(String username, String password) {
-        loginPreCheck(username, password);
-        // 用户验证
-        Authentication authentication = null;
+    @Autowired
+    LoginMapper loginMapper;
 
-        try
-        {
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-            AuthenticationContextHolder.setContext(authenticationToken);
-            // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
-            authentication = authenticationManager.authenticate(authenticationToken);
-        }
-        catch (Exception e)
-        {
-            if (e instanceof BadCredentialsException)
-            {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.password.not.match")));
-                throw new UserPasswordNotMatchException();
-            }
-            else
-            {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, e.getMessage()));
-                throw new ServiceException(e.getMessage());
-            }
-        }
-        finally
-        {
-            AuthenticationContextHolder.clearContext();
-        }
-        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
-        LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-        recordLoginInfo(loginUser.getUserId());
-        // 生成token
-        return tokenService.createToken(loginUser);
-
-    }
 
     @Override
-    public Boolean loginPreCheck(String username, String password) {
-        // 用户名或密码为空 错误
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password))
-        {
-            return null;
+    public String login(LoginBodyVo loginBodyVo) {
+        Map<String,Object> idAndPassword = loginMapper.getPasswordByName(loginBodyVo.getUserName());
+        if (idAndPassword.get("password").equals(loginBodyVo.getPassword())){
+            StpUtil.login(idAndPassword.get("user_id"));
+            return "登录成功";
         }
-        return true;
-    }
-
-    @Override
-    public void recordLoginInfo(Integer userId) {
-
+        return "登录失败";
     }
 }
