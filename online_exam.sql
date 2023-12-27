@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 14/12/2023 18:47:48
+ Date: 27/12/2023 16:38:55
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `ex_answer`  (
   `question_item_id` int(11) NOT NULL COMMENT '选项id',
   `answer` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '答案：主观题使用',
   `result_type` tinyint(1) NULL DEFAULT NULL COMMENT '结果类型：对、错、半错',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -55,7 +55,7 @@ CREATE TABLE `ex_exam_info`  (
   `is_copy_paste` tinyint(1) NULL DEFAULT 0 COMMENT '是否允许复制',
   `dept_id` int(11) NOT NULL COMMENT '部门id',
   `paper_id` int(11) UNSIGNED NOT NULL COMMENT '试卷id',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -73,8 +73,7 @@ CREATE TABLE `ex_exam_log`  (
   `exam_info_id` int(11) NOT NULL COMMENT '考试id',
   `user_id` int(11) NOT NULL COMMENT '员工id',
   `dept_id` int(11) NULL DEFAULT NULL COMMENT '部门id',
-  `status` tinyint(4) NOT NULL COMMENT '状态：0:开始、2：交卷',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -92,8 +91,8 @@ CREATE TABLE `ex_paper`  (
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '试卷标题',
   `introduce` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '试卷介绍',
   `dept_id` int(11) NOT NULL COMMENT '部门id',
-  `paper_type` int(11) NOT NULL DEFAULT 0 COMMENT '试卷类型：0:手动组卷，1：自动组卷，2：作业',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `paper_type` tinyint(11) NOT NULL DEFAULT 0 COMMENT '试卷类型：0:手动组卷，1：自动组卷，2：作业',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -110,7 +109,7 @@ CREATE TABLE `ex_paper_item`  (
   `paper_item_id` int(11) UNSIGNED NOT NULL,
   `paper_id` int(11) UNSIGNED NOT NULL COMMENT '试卷id',
   `question_id` int(11) UNSIGNED NOT NULL COMMENT '题目id',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -137,16 +136,7 @@ CREATE TABLE `ex_question`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`question_id`, `question_tag_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 85 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '题目信息' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of ex_question
--- ----------------------------
-INSERT INTO `ex_question` VALUES (80, '（4分）程序状态字寄存器 PSW 中的 AC=1,表示( )。', 0, 0, 4, 202, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question` VALUES (81, '（3分）程序状态字寄存器 PSW 中的 AC=1,表示( )。', 1, 0, 3, 202, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question` VALUES (82, '（2分）程序状态字寄存器 PSW 中的 AC=1,表示( )。', 2, 0, 2, 202, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question` VALUES (83, '（3分）总线路是用于传送信息的公共通信途径。总线可分为____、____和____。', 3, 0, 3, 202, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question` VALUES (84, '（5分）总线路是用于传送信息的公共通信途径。总线可分为', 4, 0, 5, 202, 0, '', NULL, '', NULL, NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '题目信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for ex_question_item
@@ -164,25 +154,7 @@ CREATE TABLE `ex_question_item`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`question_item_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '题目选项表' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of ex_question_item
--- ----------------------------
-INSERT INTO `ex_question_item` VALUES (9, '计算结果有进位', NULL, 80, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (10, '计算结果有溢出', NULL, 80, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (11, '累加器 A 中的数据有奇数个 1', NULL, 80, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (12, '计算结果低 4 位向高位进位', '1', 80, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (13, '计算结果有进位', NULL, 81, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (14, '计算结果有溢出', NULL, 81, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (15, '累加器 A 中的数据有奇数个 1', '1', 81, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (16, '计算结果低 4 位向高位进位', '1', 81, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (17, '对', '1', 82, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (18, '错', NULL, 82, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (19, NULL, '数据总线', 83, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (20, NULL, '地址总线', 83, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (21, NULL, '控制总线', 83, 0, '', NULL, '', NULL, NULL);
-INSERT INTO `ex_question_item` VALUES (22, NULL, '数据总线', 84, 0, '', NULL, '', NULL, NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '题目选项表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for ex_question_tag
@@ -193,7 +165,7 @@ CREATE TABLE `ex_question_tag`  (
   `parent_id` bigint(20) NULL DEFAULT 0 COMMENT '上级id',
   `ancestors` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '祖级列表',
   `question_tag` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '题库类型标签',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -216,7 +188,7 @@ CREATE TABLE `ex_score`  (
   `comment` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL COMMENT '评语',
   `result_type` tinyint(4) NULL DEFAULT NULL COMMENT '批阅结果',
   `review_type` tinyint(4) NULL DEFAULT NULL COMMENT '评阅类型',
-  `del_flag` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
@@ -226,26 +198,134 @@ CREATE TABLE `ex_score`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '考试得分' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for ex_user
+-- Table structure for sys_dept
 -- ----------------------------
-DROP TABLE IF EXISTS `ex_user`;
-CREATE TABLE `ex_user`  (
+DROP TABLE IF EXISTS `sys_dept`;
+CREATE TABLE `sys_dept`  (
+  `dept_id` int(20) NOT NULL AUTO_INCREMENT COMMENT '部门id',
+  `parent_id` int(20) NULL DEFAULT 0 COMMENT '父部门id',
+  `ancestors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '祖级列表',
+  `dept_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '部门名称',
+  `order_num` int(4) NULL DEFAULT 0 COMMENT '显示顺序',
+  `leader` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '负责人',
+  `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '联系电话',
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 2代表删除）',
+  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`dept_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '部门表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for sys_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permission`;
+CREATE TABLE `sys_permission`  (
+  `permission_id` int(11) NOT NULL AUTO_INCREMENT,
+  `permission_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限名称',
+  `permission_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '权限标识',
+  `del_flag` tinyint(1) UNSIGNED NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '备注',
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`permission_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_permission
+-- ----------------------------
+INSERT INTO `sys_permission` VALUES (1, '用户-增加', 'user-add', 0, '', NULL, '', NULL, NULL, NULL);
+INSERT INTO `sys_permission` VALUES (2, '用户-删除', 'user-delete', 0, '', NULL, '', NULL, NULL, NULL);
+INSERT INTO `sys_permission` VALUES (3, '用户-修改', 'user-update', 0, '', NULL, '', NULL, NULL, NULL);
+INSERT INTO `sys_permission` VALUES (4, '用户-查询', 'user-select', 0, '', NULL, '', NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `role_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
+  `role_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色名称',
+  `role_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '角色标识',
+  `del_flag` tinyint(1) NULL DEFAULT NULL COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`role_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '角色信息表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES (1, '普通管理员', 'admin', NULL, '', NULL, '', NULL, NULL);
+INSERT INTO `sys_role` VALUES (2, '系统管理员', 'system', NULL, '', NULL, '', NULL, NULL);
+INSERT INTO `sys_role` VALUES (3, '普通用户', 'user', NULL, '', NULL, '', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for sys_role_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role_permission`;
+CREATE TABLE `sys_role_permission`  (
+  `role_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`role_id`, `permission_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role_permission
+-- ----------------------------
+INSERT INTO `sys_role_permission` VALUES (2, 2);
+INSERT INTO `sys_role_permission` VALUES (2, 3);
+INSERT INTO `sys_role_permission` VALUES (2, 4);
+
+-- ----------------------------
+-- Table structure for sys_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user`  (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `dept_id` bigint(20) NULL DEFAULT NULL COMMENT '部门ID',
   `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户账号',
   `user_type` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '00' COMMENT '用户类型（00系统用户）',
   `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '用户邮箱',
   `phonenumber` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '手机号码',
-  `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
+  `sex` tinyint(1) NULL DEFAULT 0 COMMENT '用户性别（0男 1女 2未知）',
+  `salt` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '密码',
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '帐号状态（0正常 1停用）',
-  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `del_flag` tinyint(1) NULL DEFAULT 0 COMMENT '删除标志（0代表存在 1代表删除）',
   `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '创建者',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '考试员工信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户信息表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES (1, NULL, 'admin', '00', '', '', 0, NULL, '123456', 0, '', NULL, '', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role`  (
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+  `role_id` bigint(20) NOT NULL COMMENT '角色ID',
+  PRIMARY KEY (`user_id`, `role_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户和角色关联表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
+INSERT INTO `sys_user_role` VALUES (1, 2);
 
 SET FOREIGN_KEY_CHECKS = 1;
