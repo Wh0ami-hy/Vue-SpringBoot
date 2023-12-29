@@ -1,4 +1,4 @@
-package com.yatong.exam.stp;
+package com.yatong.exam.service.Impl;
 
 import cn.dev33.satoken.stp.StpInterface;
 import com.yatong.exam.mapper.StpMapper;

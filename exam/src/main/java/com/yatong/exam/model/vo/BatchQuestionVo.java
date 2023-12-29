@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 public class BatchQuestionVo {
 
-    @NotBlank(message = "题目类型标签不能为空")
+    @NotEmpty(message = "题目类型标签不能为空")
     @Schema(description = "题目类型标签")
     private Integer questionTagId;
 

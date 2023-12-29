@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @Author HouYi
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 @Schema(name = "ParseQuestionVo", description = "题目的富文本")
 @Data
 public class ParseQuestionVo {
-    @NotBlank(message = "题目文本不能空")
+    @NotEmpty(message = "题目文本不能空")
     @Schema(description = "题目文本")
     private String questionsText;
 }

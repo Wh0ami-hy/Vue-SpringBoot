@@ -35,7 +35,6 @@ public class QuestionController {
     QuestionServiceImpl questionService;
 
     @Operation(summary = "批量创建题目")
-    @SaCheckPermission("user-add")
     @PostMapping("/batchAdd")
     public Result batchAdd(@RequestBody @Validated BatchQuestionVo batchQuestionVo) throws SQLException {
 
@@ -44,7 +43,6 @@ public class QuestionController {
     }
 
     @Operation(summary = "解析题目文本")
-    @SaCheckPermission("user-add")
     @PostMapping("/analyze")
     public Result analyze(@RequestBody @Validated ParseQuestionVo parseQuestionVo){
 

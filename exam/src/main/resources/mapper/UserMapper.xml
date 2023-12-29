@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yatong.exam.mapper.UserMapper">
+    <select id="getPasswordByName" parameterType="java.lang.String" resultType="java.util.Map">
+        select user_id,password,salt from sys_user where user_name = #{userName}
+    </select>
+    <insert id="addUser" parameterType="java.util.Map">
+        insert into sys_user(user_name, password, salt) values (#{userName}, #{password}, #{salt})
+    </insert>
+    <select id="countByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(user_id) from sys_user where user_name = #{userName}
+    </select>
+</mapper>

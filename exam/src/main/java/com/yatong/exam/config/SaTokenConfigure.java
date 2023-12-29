@@ -1,12 +1,11 @@
 package com.yatong.exam.config;
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.config.SaTokenConfig;
 import cn.dev33.satoken.interceptor.SaInterceptor;
+import cn.dev33.satoken.router.SaRouter;
+import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -25,10 +24,30 @@ public class SaTokenConfigure implements WebMvcConfigurer {
         config.setIsLog(false);                     // 是否输出操作日志
         return config;
     }
-    // 注册 Sa-Token 拦截器，打开注解式鉴权功能
+    // 注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // 注册 Sa-Token 拦截器，打开注解式鉴权功能
-        registry.addInterceptor(new SaInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new SaInterceptor(handle -> {
+            // 拦截所有路由，并排除/system/login 用于开放登录，排除springdoc-openapi-ui 用于访问swagger页面
+            SaRouter
+                    .match("/**")    // 拦截的 path 列表，可以写多个 */
+                    .notMatch("/user/login", "/user/register", "/swagger-resources/**", "/webjars/**", "/v3/**", "/swagger-ui.html/**","/swagger-ui/**","/mgr","/mgr/**","/h5","/h5/**")        // 排除掉的 path 列表，可以写多个
+                    .check(r -> StpUtil.checkLogin());        // 要执行的校验动作，可以写完整的 lambda 表达式
+            // 权限校验 -- 不同模块校验不同权限
+            SaRouter
+                    .match("/question/**")
+                    .check(r -> StpUtil.checkPermissionOr("question-update", "question-delete", "question-select", "question-add"));
+            SaRouter
+                    .match("/user/**")
+                    .notMatch("/user/login", "/user/register")
+                    .check(r -> StpUtil.checkPermissionOr("user-update", "user-delete", "user-select", "user-add"));
+        })).addPathPatterns("/**");
     }
+    // 注册 Sa-Token 拦截器，打开注解式鉴权功能
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        // 注册 Sa-Token 拦截器，打开注解式鉴权功能
+//        registry.addInterceptor(new SaInterceptor()).addPathPatterns("/**");
+//    }
+
 }
