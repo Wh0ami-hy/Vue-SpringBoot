@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
             StpUtil.login(idPasswordSalt.get("user_id"));
             return "登录成功";
         }
-        return "登录失败";
+        return "账号或密码错误";
     }
 
     @Override

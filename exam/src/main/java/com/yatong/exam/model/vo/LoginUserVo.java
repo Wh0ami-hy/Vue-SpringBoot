@@ -1,7 +1,6 @@
 package com.yatong.exam.model.vo;
 
 import com.yatong.exam.model.entity.SysUser;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.Set;
@@ -14,7 +13,6 @@ import java.util.Set;
  */
 
 @Data
-@Schema
 public class LoginUserVo {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +20,6 @@ public class LoginUserVo {
 
     private String token;
 
-    @Schema(description = "权限列表")
     private Set<String> permissions;
 
 

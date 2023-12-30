@@ -2,7 +2,6 @@ package com.yatong.exam.model.vo;
 
 import com.yatong.exam.model.entity.ExQuestion;
 import com.yatong.exam.model.entity.ExQuestionItem;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.List;
@@ -14,7 +13,6 @@ import java.util.List;
  * @Since version-1.0
  */
 @Data
-@Schema(name = "QuestionInfoVo", description = "题目具体信息")
 public class QuestionInfoVo extends ExQuestion {
     private List<ExQuestionItem> options;
 }
